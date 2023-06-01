@@ -5,18 +5,57 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:onClick="publicLogin"
-        android:text="去观播" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp">
+
+        <EditText
+            android:id="@+id/edittext_activityid"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:hint="Activity ID"
+            android:paddingHorizontal="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/tvu_black_40" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp">
+
+        <EditText
+            android:id="@+id/edittext_token"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:hint="Token"
+            android:paddingHorizontal="10dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/tvu_black_40" />
+    </LinearLayout>
 
     <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="join"
+        android:onClick="goLiveRoom"
+        android:layout_marginHorizontal="12dp" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/join_type_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:onClick="customLogin"
-        android:text="自定义账号观播" />
+        android:checked="false"
+        android:textOff="横屏"
+        android:textOn="竖屏"/>
 
 </LinearLayout>

@@ -44,10 +44,6 @@
             android:exported="false"
             android:launchMode="singleTask">
         </activity>
-        <activity android:name="com.bytedance.videoarch.ttLiveStream.ScanQRCodeActivity" />
-        <activity
-            android:name="com.bytedance.videoarch.ttLiveStream.TestSinglePlayerViewActivity"
-            android:exported="false" />
     </application>
 
 </manifest>

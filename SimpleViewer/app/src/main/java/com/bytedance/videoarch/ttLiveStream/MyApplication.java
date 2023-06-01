@@ -32,13 +32,13 @@ import com.pandora.ttlicense2.LicenseManager;
 
 public class MyApplication extends Application {
 
-    public final static String mAppId = "";//申请 TTSDK License 时使用的 AppId，请联系技术支持获取。
-    public final static String mAppName = "";// 申请 TTSDK License 时使用的 AppName，请联系技术支持获取。
-    public final static String mRegion = "";// 申请 TTSDK License 时使用的 region，即 china。
-    private final static String mVersion = "";//App 版本号
-    private final static String mChannel = "";// App渠道名，可不填。
-    private final static String mLiveLicenseUri = "";//直播License Uri,如放在assets/lic文件夹，示例：assets:///lic/xxx.lic
-    private final static String mVodLicenseUri = "";//点播License Uri,如放在assets/lic文件夹，示例：assets:///lic/xxx.lic
+    public final static String mAppId = "appId";//申请 TTSDK License 时使用的 AppId，请联系技术支持获取。
+    public final static String mAppName = "appName";// 申请 TTSDK License 时使用的 AppName，请联系技术支持获取。
+    public final static String mRegion = "china";// 申请 TTSDK License 时使用的 region，即 china。
+    private final static String mVersion = "1.0.0";//App 版本号
+    private final static String mChannel = "channel";// App渠道名
+    private final static String mLiveLicenseUri = "assets:///lic/l-101585-ch-live-a-407390.lic";//直播License Uri,如放在assets/lic文件夹，示例：assets:///lic/xxx.lic
+    private final static String mVodLicenseUri = "assets:///lic/l-101586-ch-vod-a-407390.lic";//点播License Uri,如放在assets/lic文件夹，示例：assets:///lic/xxx.lic
 
     @Override
     public void onCreate() {
