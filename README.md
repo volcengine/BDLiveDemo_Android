@@ -62,7 +62,7 @@ git clone https://github.com/volcengine/BDLiveDemo_Android.git
 
 7. 打开应用后，您可以看到以下界面。此处预填了企业直播官方 Demo 直播间的 Activity ID 和 token。点击 Join 即可进入直播间。
 
-   ![simpleviewer_screenshot.png](./images/20230601-144500.jpeg)
+   <img src="./images/20230601-144500.jpeg" alt="simpleviewer_screenshot.png" style="zoom: 25%;" />
 
 # 更多文档
 
