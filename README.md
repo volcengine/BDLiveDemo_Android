@@ -42,7 +42,7 @@ git clone https://github.com/volcengine/BDLiveDemo_Android.git
        public final static String mAppName = "";// 申请 TTSDK License 时使用的 AppName，请联系技术支持获取。
        public final static String mRegion = "";// 申请 TTSDK License 时使用的 region，即 china。
        private final static String mVersion = "";//App 版本号
-       private final static String mChannel = "";// App渠道名，可不填。
+       private final static String mChannel = "";// App渠道名
        private final static String mLiveLicenseUri = "";//直播License Uri,如放在assets/lic文件夹，示例：assets:///lic/xxx.lic
        private final static String mVodLicenseUri = "";//点播License Uri,如放在assets/lic文件夹，示例：assets:///lic/xxx.lic
        
@@ -60,9 +60,9 @@ git clone https://github.com/volcengine/BDLiveDemo_Android.git
 
 6. 使用AndroidStudio运行项目到真机上启动Demo App
 
-7. 在App主界面点击去观播按钮扫描二维码后进入直播间观看直播
+7. 打开应用后，您可以看到以下界面。此处预填了企业直播官方 Demo 直播间的 Activity ID 和 token。点击 Join 即可进入直播间。
 
-   > 二维码指的是企业直播直播间控制台页面的移动端观看二维码
+   ![simpleviewer_screenshot.png](./images/20230601-144500.jpeg)
 
 # 更多文档
 
