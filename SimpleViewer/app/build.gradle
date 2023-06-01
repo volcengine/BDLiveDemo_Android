@@ -1,20 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    lintOptions {
-        checkReleaseBuilds false
-        abortOnError false
-    }
-    compileSdkVersion 32
-    ndkVersion "20.1.5948944"
+    compileSdkVersion 33
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 32
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
         applicationId "com.bytedance.videoarch.TTLiveStream"
-        manifestPlaceholders.put("APPLOG_SCHEME", "bdlive_android_demo")
         ndk {
             abiFilters "armeabi-v7a","arm64-v8a"
         }
@@ -36,14 +30,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-    packagingOptions {
-        pickFirst '**/libc++_shared.so'
-    }
 
     dataBinding {
         enabled = true
@@ -56,11 +42,6 @@ repositories {
 }
 
 dependencies {
-
     //直播间
     implementation "com.bytedance.bdlive:bdlive-pull:1.23.2.external"
-}
-
-configurations.all {
-    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
 }
