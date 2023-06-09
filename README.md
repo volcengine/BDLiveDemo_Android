@@ -1,6 +1,14 @@
 # BDLiveDemo_Android
 
-企业直播在 GitHub 上提供开源示例项目 BDLiveDemo_Android 用于演示如何集成和使用企业直播 aPaaS SDK。该项目演示了如何通过少量代码接入完整直播间。
+企业直播在 GitHub 上提供开源示例项目 BDLiveDemo_Android 用于演示如何集成和使用企业直播 aPaaS SDK。该项目包含以下 Demo：
+
+- `SimpleViewer`: 演示了如何通过少量代码接入完整直播间。
+
+- `SimpleStreamer`: 演示了如何通过少量代码接入开播 SDK。
+
+- `StreamerAndViewer`: 演示了如何通过少量代码同时接入观播 SDK 和开播 SDK。
+
+  本文以 SimpleViewer 为例，介绍如何快速编译并运行 Demo。
 
 # 前提条件
 
@@ -17,7 +25,7 @@
 git clone https://github.com/volcengine/BDLiveDemo_Android.git
 ```
 
-2. 使用AndroidStudio打开BDLiveDemo_Android项目。
+2. 使用AndroidStudio打开BDLiveDemo_Android/SimpleViewer项目。
 
 3. 将获取到的TTSDK点播和直播License文件复制到 根目录/app/src/main/assets/lic/下，文件结构如下：
 
