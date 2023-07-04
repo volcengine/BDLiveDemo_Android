@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="resolutionModel"
+            type="com.bytedance.live.sdk.player.model.SettingResolutionModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/tvu_black_bottom_dialog_bg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/resolution_play_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:textColor="#A6A6A7"
+            android:textSize="15sp" />
+
+        <GridLayout
+            android:id="@+id/resolution_gridlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="6dp"
+            android:layout_marginTop="4dp"
+            android:columnCount="2"
+            />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="24dp"
+            android:background="#343434" />
+
+
+        <TextView
+            android:id="@+id/resolution_cancel_btn"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:gravity="center"
+            android:textColor="#909090"
+            android:textSize="16sp" />
+    </LinearLayout>
+</layout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tvu_black_50"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="20dp">
+
+        <com.bytedance.videoarch.ttlivestream.singleplaydemoview.TVUSinglePlayDemoView
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="10dp">
+        <com.bytedance.live.sdk.player.view.SwitchLineView
+            android:id="@+id/switch_line_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:visibility="gone"/>
+        <com.bytedance.live.sdk.player.view.TVUPeopleHotCountView
+            android:id="@+id/people_hot_count_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical" />
+    </FrameLayout>
+
+
+    <com.bytedance.live.sdk.player.view.TVUCommentListView
+        android:id="@+id/comment_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

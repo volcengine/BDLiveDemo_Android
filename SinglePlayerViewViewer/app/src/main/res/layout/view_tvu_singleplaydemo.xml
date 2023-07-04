@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="playViewModel"
+            type="com.bytedance.videoarch.ttlivestream.singleplaydemoview.SinglePlayDemoViewModel" />
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="seekListener"
+            type="android.widget.SeekBar.OnSeekBarChangeListener" />
+    </data>
+
+    <FrameLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:onClick="@{clickListener}">
+
+        <com.bytedance.live.sdk.player.view.tvuSinglePlay.TVUSinglePlayerView
+            android:id="@+id/tvu_single_video_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <FrameLayout
+            android:id="@+id/control_layout"
+            viewVisible="@{playViewModel.controlLayoutVisible}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/top_control_bar"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:background="@drawable/tvu_portrait_top_bar_gradient_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp">
+
+                <LinearLayout
+                    android:id="@+id/switch_line_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    android:gravity="center_vertical"
+                    android:onClick="@{clickListener}"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/switch_line_icon"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:src="@drawable/tvu_switch_line_icon" />
+
+                    <TextView
+                        android:id="@+id/switch_line_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="4dp"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="多线路"
+                        android:textColor="@color/white"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/bottom_control_bar"
+                viewVisible="@{playViewModel.vodPrepared || playViewModel.livePrepared}"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/tvu_progress_bar_gradient_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/play_or_pause_btn"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:onClick="@{clickListener}"
+                        android:src="@mipmap/tvu_contiune_play_icon" />
+
+
+                    <TextView
+                        android:id="@+id/cur_vod_playtime_tv"
+                        viewVisible="@{playViewModel.vodPrepared}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="18dp"
+                        android:layout_marginStart="8dp"
+                        android:gravity="center"
+                        android:text="@{playViewModel.curVodPlayTimeText}"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp" />
+
+                    <com.bytedance.live.sdk.player.view.FusionPlayerSeekBar
+                        android:id="@+id/vod_progress_bar"
+                        viewVisible="@{playViewModel.vodPrepared}"
+                        android:layout_width="0dp"
+                        android:layout_height="16dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:clickable="true"
+                        android:duplicateParentState="true"
+                        android:focusable="true"
+                        android:max="100"
+                        android:maxHeight="2dp"
+                        android:nestedScrollingEnabled="false"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:progress="@{playViewModel.seekBarProgress}"
+                        android:progressDrawable="@drawable/tvu_process_bar_drawable"
+                        android:thumb="@drawable/tvu_progress_bar_circle_shape" />
+
+
+                    <TextView
+                        android:id="@+id/vod_duration_tv"
+                        viewVisible="@{playViewModel.vodPrepared}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="18dp"
+                        android:gravity="center"
+                        android:text="@{playViewModel.vodDurationText}"
+                        android:textColor="#A0FFFFFF"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/speed_setting_btn"
+                        viewVisible="@{playViewModel.vodPrepared}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="8dp"
+                        android:gravity="center"
+                        android:onClick="@{clickListener}"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/resolution_setting_btn"
+                    viewVisible="@{playViewModel.vodPrepared||playViewModel.livePrepared}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="8dp"
+                    android:gravity="center"
+                    android:onClick="@{clickListener}"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/full_screen_btn"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="8dp"
+                    android:onClick="@{clickListener}"
+                    android:src="@mipmap/tvu_full_screen_btn" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/center_play_btn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:onClick="@{clickListener}"
+                android:src="@mipmap/tvu_big_play_icon" />
+        </FrameLayout>
+
+
+        <ImageView
+            android:id="@+id/loading_progress_bar"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:src="@drawable/tvu_loading_new"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/error_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#50000000"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="当前网络不可用，请检查网络连接后重试"
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
+
+            <com.bytedance.live.sdk.player.view.RoundTextView
+                android:id="@+id/error_retry_btn"
+                android:layout_width="70dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:onClick="@{clickListener}"
+                android:text="重试"
+                android:textColor="#ffffff"
+                app:rtvBgColor="#50000000"
+                app:rtvBorderColor="#50ffffff"
+                app:rtvBorderWidth="1dp"
+                app:rtvRadius="0dp" />
+        </LinearLayout>
+    </FrameLayout>
+</layout>

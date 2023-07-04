@@ -1,0 +1,48 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 33
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+        applicationId "com.bytedance.videoarch.TTLiveStream"
+        ndk {
+            abiFilters "armeabi-v7a","arm64-v8a"
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("./keystore")
+            storePassword "123456"
+            keyAlias "key0"
+            keyPassword "123456"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+repositories {
+    flatDir {
+        dirs 'libs'   // aar目录
+    }
+}
+
+dependencies {
+    //直播间
+    implementation "com.bytedance.bdlive:bdlive-pull:1.24.0.external-alpha.0"
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
+}
