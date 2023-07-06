@@ -48,5 +48,5 @@ repositories {
 
 dependencies {
     //直播间
-    implementation "com.bytedance.bdlive:bdlive-pull:1.25.0.external"
+    implementation "com.bytedance.bdlive:bdlive-pull:1.26.0.external"
 }
