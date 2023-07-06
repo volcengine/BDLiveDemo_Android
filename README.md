@@ -4,6 +4,8 @@
 
 - `SimpleViewer`: 演示了如何通过少量代码接入完整直播间。
 
+- `SinglePlayerViewViewer`: 演示了如何接入独立播放器组件以及提供了一个基于独立播放器的带控制界面的TVUSinglePlayDemoView。
+
 - `SimpleStreamer`: 演示了如何通过少量代码接入开播 SDK。
 
 - `StreamerAndViewer`: 演示了如何通过少量代码同时接入观播 SDK 和开播 SDK。

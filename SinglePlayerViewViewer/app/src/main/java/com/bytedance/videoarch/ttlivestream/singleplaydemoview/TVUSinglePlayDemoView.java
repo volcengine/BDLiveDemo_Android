@@ -44,6 +44,9 @@ import com.ss.videoarch.liveplayer.log.LiveError;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * 基于TVUSinglePlayerView包装的一个带控制界面的VideoView，帮助接入TVUSinglePlayerView的客户快速复用
+ */
 public class TVUSinglePlayDemoView extends FrameLayout implements View.OnClickListener {
     final String TAG = getClass().getSimpleName();
     TVUSinglePlayDemoViewListener demoViewListener;
