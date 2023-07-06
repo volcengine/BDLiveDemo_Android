@@ -43,6 +43,6 @@ repositories {
 
 dependencies {
     //直播间
-    implementation "com.bytedance.bdlive:bdlive-pull:1.24.0.external-alpha.0"
+    implementation "com.bytedance.bdlive:bdlive-pull:1.26.0.external-alpha.0"
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
 }

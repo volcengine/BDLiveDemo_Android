@@ -579,6 +579,17 @@ public class TVUSinglePlayDemoView extends FrameLayout implements View.OnClickLi
             singlePlayerView.play();
         } else if (v == binding.switchLineLayout) {
             showSwitchLineDialog();
+        } else if (v == binding.refreshLiveBtn) {
+            singlePlayerView.refreshLive();
+        } else if (v == binding.videoSizeBtn) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+            builder.setTitle("视频尺寸");
+            String[] sizeNames = new String[]{"适应", "拉伸", "填充"};
+            builder.setSingleChoiceItems(sizeNames, singlePlayerView.getPlayerLayoutMode(), (dialog, which) -> {
+                singlePlayerView.setPlayerLayoutMode(which);
+                dialog.dismiss();
+            });
+            builder.create().show();
         }
     }
 

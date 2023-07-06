@@ -43,32 +43,52 @@
                 android:paddingHorizontal="8dp">
 
                 <LinearLayout
-                    android:id="@+id/switch_line_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="end"
-                    android:gravity="center_vertical"
-                    android:onClick="@{clickListener}"
-                    android:visibility="gone">
-
-                    <ImageView
-                        android:id="@+id/switch_line_icon"
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:src="@drawable/tvu_switch_line_icon" />
+                    android:gravity="center_vertical">
 
                     <TextView
-                        android:id="@+id/switch_line_text"
+                        android:id="@+id/video_size_btn"
+                        viewVisible="@{playViewModel.livePrepared || playViewModel.vodPrepared}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="视频尺寸"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:onClick="@{clickListener}"/>
+
+                    <LinearLayout
+                        android:id="@+id/switch_line_layout"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_marginHorizontal="4dp"
-                        android:ellipsize="end"
+                        android:layout_gravity="end"
+                        android:layout_marginStart="10dp"
                         android:gravity="center_vertical"
-                        android:singleLine="true"
-                        android:text="多线路"
-                        android:textColor="@color/white"
-                        android:textSize="12sp" />
+                        android:onClick="@{clickListener}"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/switch_line_icon"
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:src="@drawable/tvu_switch_line_icon" />
+
+                        <TextView
+                            android:id="@+id/switch_line_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginHorizontal="4dp"
+                            android:ellipsize="end"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text="多线路"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
                 </LinearLayout>
+
             </FrameLayout>
 
             <LinearLayout
@@ -95,6 +115,15 @@
                         android:layout_height="20dp"
                         android:onClick="@{clickListener}"
                         android:src="@mipmap/tvu_contiune_play_icon" />
+
+                    <ImageView
+                        android:id="@+id/refresh_live_btn"
+                        viewVisible="@{playViewModel.livePrepared}"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="8dp"
+                        android:onClick="@{clickListener}"
+                        android:src="@mipmap/tvu_play_refresh_icon" />
 
 
                     <TextView
