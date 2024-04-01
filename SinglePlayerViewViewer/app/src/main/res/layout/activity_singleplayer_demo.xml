@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <com.bytedance.bdlive.demo.advanced.ui.SimpleWrappedVideoView
+        android:id="@+id/video_view_1"
+        android:layout_width="320dp"
+        android:layout_height="180dp" />
+
+    <Button
+        android:id="@+id/start_video1_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="start video1" />
+
+    <com.bytedance.bdlive.demo.advanced.ui.SimpleWrappedVideoView
+        android:id="@+id/video_view_2"
+        android:layout_width="180dp"
+        android:layout_height="320dp"
+        android:layout_marginTop="30dp" />
+    <Button
+        android:id="@+id/start_video2_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="start video2" />
+
+</LinearLayout>

@@ -58,4 +58,12 @@
         android:textOff="只有独立播放器组件"
         android:textOn="独立播放器和其它直播间组件"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="join simple wrapped demo"
+        android:onClick="gotoSimpleWrappedDemo"
+        android:layout_marginHorizontal="12dp" />
+
 </LinearLayout>

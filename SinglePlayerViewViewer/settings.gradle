@@ -1,2 +1,2 @@
-rootProject.name = "ByteLivePushDemo"
+rootProject.name = "SinglePlayerViewViewer"
 include ':app'

@@ -29,6 +29,7 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
+import com.bytedance.bdlive.demo.advanced.data.LiveRoomConst;
 import com.bytedance.live.common.utils.ToastUtil;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
     public static String INTENT_TOKEN = "token";
     public static String INTENT_IS_PUBLIC = "isPublic";
 
-    private long activityId = 1678089977360392L;
-    private String token = "JQCFns";
+    public static long activityId = LiveRoomConst.Companion.getJoinRoomData()[0].getId();
+    public static String token = LiveRoomConst.Companion.getJoinRoomData()[0].getToken();
 
     EditText idEditText;
     EditText tokenEditText;
@@ -85,6 +86,10 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(INTENT_TOKEN, token);
         intent.putExtra(INTENT_IS_PUBLIC, isPublicMode);
         startActivity(intent);
+    }
+
+    public void gotoSimpleWrappedDemo(View view) {
+        startActivity(new Intent(this, SimpleWrappedDemoActivity.class));
     }
 
 }

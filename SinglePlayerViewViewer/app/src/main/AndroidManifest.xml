@@ -58,6 +58,10 @@
             android:exported="false"
             android:theme="@style/TVUAppThemeFullscreen"
             android:windowSoftInputMode="stateUnspecified|adjustPan" />
+        <activity
+            android:name="SimpleWrappedDemoActivity"
+            android:exported="false"
+            android:theme="@style/TVUAppThemeFullscreen" />
     </application>
 
 </manifest>
