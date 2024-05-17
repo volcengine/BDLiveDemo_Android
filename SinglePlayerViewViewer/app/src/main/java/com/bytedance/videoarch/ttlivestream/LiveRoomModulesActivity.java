@@ -6,18 +6,28 @@ import static com.bytedance.videoarch.ttlivestream.MainActivity.INTENT_TOKEN;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bytedance.live.common.utils.ToastUtil;
+import com.bytedance.live.sdk.player.CustomSettings;
+import com.bytedance.live.sdk.player.ServiceApi;
 import com.bytedance.live.sdk.player.TVULiveRoom;
 import com.bytedance.live.sdk.player.TVULiveRoomServer;
 import com.bytedance.live.sdk.player.listener.ITVULiveRoomServerListener;
+import com.bytedance.live.sdk.player.listener.RedirectPageListener;
+import com.bytedance.live.sdk.player.logic.thumb.ThumbFlowingContainer;
 import com.bytedance.live.sdk.player.model.vo.generate.ActivityResult;
+import com.bytedance.live.sdk.player.model.vo.response.SendCommentResponse;
+import com.bytedance.live.sdk.player.net.ws.WSCustomIMListener;
 import com.bytedance.live.sdk.player.view.TVUCommentListView;
 import com.bytedance.live.sdk.player.view.TVUPeopleHotCountView;
 import com.bytedance.live.sdk.player.view.tvuSinglePlay.InitConfig;
 import com.bytedance.videoarch.ttlivestream.singleplaydemoview.TVUSinglePlayDemoView;
+
+import java.util.Random;
 
 public class LiveRoomModulesActivity extends AppCompatActivity {
 
@@ -80,6 +90,62 @@ public class LiveRoomModulesActivity extends AppCompatActivity {
             public void playerStatusChange(int playerStatus) {
 
             }
+        });
+
+        //隐藏底部输入框
+        tvuCommentListView.setShowCommentBottomBar(false);
+
+        //监听直播间内调用OPENAPI发送的自定义IM消息
+        roomServer.getWsConnector().addListener(new WSCustomIMListener() {
+            @Override
+            public void onReceiveIMString(String str) {
+                ToastUtil.displayToast("onReceiveIMStr:"+str);
+            }
+
+            @Override
+            public void onConnectFailed() {
+
+            }
+
+            @Override
+            public void onConnected() {
+
+            }
+        });
+        findViewById(R.id.send_comment_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                @SuppressLint("[ByDesign7.4]WeakPRNG")
+                String s = String.valueOf(new Random(System.currentTimeMillis()).nextInt());
+                //发送文本消息
+                roomServer.getCommentDataManager().sendTextMessage(s, new ServiceApi.ResultCallback<SendCommentResponse>() {
+                    @Override
+                    public void onSuccess(SendCommentResponse data) {
+
+                    }
+
+                    @Override
+                    public void onFailed(int errCode, String errMsg) {
+                        if (errCode == ServiceApi.FREQUENCY_LIMIT){
+                            //发送消息有频率限制，需要处理
+                            ToastUtil.displayToast("频率限制");
+                        }
+                    }
+                });
+            }
+        });
+        findViewById(R.id.send_thumb_anim_btn).setOnClickListener(v -> {
+            //抽离出的点赞动画的视图，也可以自己实现，参考ThumbFlowingContainer内部的startAnimation和createPath方法
+            ThumbFlowingContainer flowingContainer = findViewById(R.id.thumb_anim_layout);
+            flowingContainer.startAnimation(v.getContext());
+        });
+        CustomSettings.Holder.mSettings.setRedirectPageListener((liveActivity, redirectInfo) -> {
+            if (redirectInfo.getEntrance().equals(RedirectPageListener.Entrance.COMMENT_CONTENT.value)){
+                //自定义拦截评论内容的点击，不显示回复评论的弹框
+                ToastUtil.displayToast("Click: "+redirectInfo.getCommentModel().getContent());
+                return true;
+            }
+            return false;
         });
 
         roomServer.start();

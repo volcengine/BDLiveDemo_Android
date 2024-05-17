@@ -32,8 +32,8 @@ import com.bytedance.live.push.TVUPushLiveRoom;
 
 public class MainActivity extends AppCompatActivity {
 
-    private final String activityId = "";//fill activity id,contact Technical Support to get
-    private final String secretKey = "";//fill activity secretKey,contact Technical Support to get
+    private final String activityId = "1795897321751579";//fill activity id,contact Technical Support to get
+    private final String secretKey = "ByIHznZVF/CnCffhWFEfEfxXFsGcyBUdfJvyrtkVLJv6r3lxPrRVlO9vSntUY7QG";//fill activity secretKey,contact Technical Support to get
 
     EditText idEditText;
     EditText tokenEditText;

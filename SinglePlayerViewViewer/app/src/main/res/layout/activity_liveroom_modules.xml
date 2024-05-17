@@ -1,43 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/tvu_black_50"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginHorizontal="12dp"
-        android:layout_marginTop="20dp">
+        android:layout_height="match_parent"
+        android:background="@color/tvu_black_50"
+        android:orientation="vertical">
 
-        <com.bytedance.videoarch.ttlivestream.singleplaydemoview.TVUSinglePlayDemoView
-            android:id="@+id/video_view"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp" />
-    </FrameLayout>
+            android:layout_height="200dp"
+            android:layout_marginHorizontal="12dp"
+            android:layout_marginTop="20dp">
 
-    <FrameLayout
-        android:layout_width="match_parent"
+            <com.bytedance.videoarch.ttlivestream.singleplaydemoview.TVUSinglePlayDemoView
+                android:id="@+id/video_view"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="10dp">
+
+            <com.bytedance.live.sdk.player.view.SwitchLineView
+                android:id="@+id/switch_line_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:visibility="gone" />
+
+            <com.bytedance.live.sdk.player.view.TVUPeopleHotCountView
+                android:id="@+id/people_hot_count_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical" />
+        </FrameLayout>
+
+
+        <com.bytedance.live.sdk.player.view.TVUCommentListView
+            android:id="@+id/comment_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/send_comment_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="点击发送随机数字评论" />
+
+            <Button
+                android:id="@+id/send_thumb_anim_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="点击发送点赞动画" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <com.bytedance.live.sdk.player.logic.thumb.ThumbFlowingContainer
+        android:id="@+id/thumb_anim_layout"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="10dp">
-        <com.bytedance.live.sdk.player.view.SwitchLineView
-            android:id="@+id/switch_line_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:visibility="gone"/>
-        <com.bytedance.live.sdk.player.view.TVUPeopleHotCountView
-            android:id="@+id/people_hot_count_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|center_vertical" />
-    </FrameLayout>
-
-
-    <com.bytedance.live.sdk.player.view.TVUCommentListView
-        android:id="@+id/comment_list_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-</LinearLayout>
+        android:layout_gravity="bottom|center_horizontal"/>
+</FrameLayout>

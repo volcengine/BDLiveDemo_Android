@@ -43,5 +43,6 @@ repositories {
 
 dependencies {
     //直播间
-    implementation "com.bytedance.bdlive:bdlive-push:1.24.0.external"
+    implementation "com.bytedance.bdlive:bdlive-push:1.30.0.external"
+    implementation "com.github.bumptech.glide:glide:4.15.1"
 }

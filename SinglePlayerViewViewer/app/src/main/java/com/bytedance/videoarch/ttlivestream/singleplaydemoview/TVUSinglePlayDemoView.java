@@ -39,6 +39,7 @@ import com.bytedance.videoarch.ttlivestream.singleplaydemoview.dialog.TVUResolut
 import com.bytedance.videoarch.ttlivestream.singleplaydemoview.dialog.TVUSpeedSettingDialog;
 import com.bytedance.videoarch.ttlivestream.singleplaydemoview.dialog.TVUSpeedSettingLandDialog;
 import com.ss.ttvideoengine.utils.Error;
+import com.ss.videoarch.liveplayer.VeLivePlayerError;
 import com.ss.videoarch.liveplayer.log.LiveError;
 
 import java.util.Arrays;
@@ -200,11 +201,11 @@ public class TVUSinglePlayDemoView extends FrameLayout implements View.OnClickLi
 
         /**
          * 直播发生错误的回调
-         * @param error 错误详情
+         * @param veLivePlayerError 错误详情
          */
         @Override
-        public void liveErrorOccurred(LiveError error) {
-            String msg = "liveErrorOccurred,error:" + error.toString();
+        public void liveErrorOccurred(VeLivePlayerError veLivePlayerError) {
+            String msg = "liveErrorOccurred,error:" + veLivePlayerError.mErrorCode;
             addLog(msg);
         }
 
