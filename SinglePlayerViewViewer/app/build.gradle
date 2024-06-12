@@ -44,7 +44,7 @@ repositories {
 
 dependencies {
     //直播间
-    implementation "com.bytedance.bdlive:bdlive-pull:1.36.0.external"
+    implementation "com.bytedance.bdlive:bdlive-pull-remove-rtc:1.39.2.external"
     implementation "com.github.bumptech.glide:glide:4.15.1"
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
 

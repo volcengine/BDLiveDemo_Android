@@ -423,6 +423,7 @@ public class TVUSinglePlayDemoView extends FrameLayout implements View.OnClickLi
     public void initPlayer(InitConfig config) {
         config.singlePlayerListener = playerListener;
         singlePlayerView.init(config);
+        singlePlayerView.getInnerPlayerView().setBackground(null);
     }
 
     public PlayerView getInnerPlayerView() {
