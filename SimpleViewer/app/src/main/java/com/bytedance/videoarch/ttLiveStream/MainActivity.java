@@ -33,8 +33,8 @@ import com.bytedance.live.sdk.player.TVULiveRoom;
 
 public class MainActivity extends AppCompatActivity {
 
-    private long activityId = 1678089977360392L;
-    private String token = "JQCFns";
+    private long activityId = 1795080455821372L;
+    private String token = "cJUBHH";
 
     EditText idEditText;
     EditText tokenEditText;

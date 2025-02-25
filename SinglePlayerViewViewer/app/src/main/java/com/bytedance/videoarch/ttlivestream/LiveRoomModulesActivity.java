@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bytedance.live.common.utils.ToastUtil;
+import com.bytedance.live.common.ws.WSCustomIMListener;
 import com.bytedance.live.sdk.player.CustomSettings;
 import com.bytedance.live.sdk.player.ServiceApi;
 import com.bytedance.live.sdk.player.TVULiveRoom;
@@ -21,7 +22,6 @@ import com.bytedance.live.sdk.player.listener.RedirectPageListener;
 import com.bytedance.live.sdk.player.logic.thumb.ThumbFlowingContainer;
 import com.bytedance.live.sdk.player.model.vo.generate.ActivityResult;
 import com.bytedance.live.sdk.player.model.vo.response.SendCommentResponse;
-import com.bytedance.live.sdk.player.net.ws.WSCustomIMListener;
 import com.bytedance.live.sdk.player.view.TVUCommentListView;
 import com.bytedance.live.sdk.player.view.TVUPeopleHotCountView;
 import com.bytedance.live.sdk.player.view.tvuSinglePlay.InitConfig;
@@ -98,19 +98,20 @@ public class LiveRoomModulesActivity extends AppCompatActivity {
         //监听直播间内调用OPENAPI发送的自定义IM消息
         roomServer.getWsConnector().addListener(new WSCustomIMListener() {
             @Override
+            public void onConnectFailed(String s, String s1) {
+
+            }
+
+            @Override
+            public void onConnected(long l) {
+
+            }
+
+            @Override
             public void onReceiveIMString(String str) {
                 ToastUtil.displayToast("onReceiveIMStr:"+str);
             }
 
-            @Override
-            public void onConnectFailed() {
-
-            }
-
-            @Override
-            public void onConnected() {
-
-            }
         });
         findViewById(R.id.send_comment_btn).setOnClickListener(new View.OnClickListener() {
             @Override
