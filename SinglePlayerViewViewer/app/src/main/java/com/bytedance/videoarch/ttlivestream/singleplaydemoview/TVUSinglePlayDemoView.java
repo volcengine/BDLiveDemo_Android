@@ -20,6 +20,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.databinding.DataBindingUtil;
 
 import com.bytedance.live.common.interfaces.Consumer;
+import com.bytedance.live.common.utils.ServerUtil;
 import com.bytedance.live.common.utils.StringUtils;
 import com.bytedance.live.sdk.player.listener.SinglePlayerListener;
 import com.bytedance.live.sdk.player.model.FusionPlayerModel;
@@ -28,7 +29,6 @@ import com.bytedance.live.sdk.player.model.vo.generate.Replay;
 import com.bytedance.live.sdk.player.view.PlayerView;
 import com.bytedance.live.sdk.player.view.tvuSinglePlay.InitConfig;
 import com.bytedance.live.sdk.player.view.tvuSinglePlay.TVUSinglePlayerView;
-import com.bytedance.live.sdk.util.ServerUtil;
 import com.bytedance.live.sdk.util.UIUtil;
 import com.bytedance.videoarch.ttlivestream.R;
 import com.bytedance.videoarch.ttlivestream.databinding.ViewTvuSingleplaydemoBinding;
@@ -40,7 +40,6 @@ import com.bytedance.videoarch.ttlivestream.singleplaydemoview.dialog.TVUSpeedSe
 import com.bytedance.videoarch.ttlivestream.singleplaydemoview.dialog.TVUSpeedSettingLandDialog;
 import com.ss.ttvideoengine.utils.Error;
 import com.ss.videoarch.liveplayer.VeLivePlayerError;
-import com.ss.videoarch.liveplayer.log.LiveError;
 
 import java.util.Arrays;
 import java.util.List;

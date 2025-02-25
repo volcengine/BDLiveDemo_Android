@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         idEditText.setText(activityId);
         tokenEditText.setText(secretKey);
-        openCV();
+//        openCV();
     }
 
 
@@ -79,8 +79,8 @@ public class MainActivity extends AppCompatActivity {
         cvSettings.setResourceAssetName("resource.zip");
 
         //设置CV在线授权的LicenseKey和LicenseSecret
-        cvSettings.setOnLineLicenseInfo("biz_license_tool_test_keyec8cd09ce1cd4aa7858ddd23cf1822cb",
-                "aacf70f12f4c0b53cdc4c25d8ef3c81a");
+        cvSettings.setOnLineLicenseInfo("XXX",
+                "XXX");
     }
 
 }
